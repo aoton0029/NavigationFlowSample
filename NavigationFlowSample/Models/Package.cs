@@ -15,6 +15,14 @@ namespace NavigationFlowSample.Models
 
         public int GroupNo { get; set; }
 
+        public string OrderSheetNo => string.IsNullOrEmpty(OrderNo) ? string.Empty : $"{OrderNo}-{GroupNo}";
+
+        public string ProductName { get; set; }
+
+        public int NumOfProducts { get; set; }
+
+        public int NumOfProductsPerBox { get; set; } = 1;
+
         public List<SerialNo> AllSerialNos { get; set; }
 
         public List<Box> Boxes { get; set; }
@@ -30,6 +38,8 @@ namespace NavigationFlowSample.Models
             {
                 OrderNo = OrderNo,
                 GroupNo = GroupNo,
+                ProductName = ProductName,
+                NumOfProducts = NumOfProducts,
                 AllSerialNos = new List<SerialNo>(AllSerialNos),
                 Boxes = new List<Box>(Boxes)
             };
@@ -41,6 +51,8 @@ namespace NavigationFlowSample.Models
             IsIncluded = snapshot.IsIncluded;
             OrderNo = snapshot.OrderNo;
             GroupNo = snapshot.GroupNo;
+            ProductName = snapshot.ProductName;
+            NumOfProducts = snapshot.NumOfProducts;
             AllSerialNos.Clear();
             foreach (var serialNo in snapshot.AllSerialNos)
             {

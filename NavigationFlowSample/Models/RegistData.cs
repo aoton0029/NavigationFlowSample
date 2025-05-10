@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace NavigationFlowSample.Models
 {
@@ -33,6 +34,25 @@ namespace NavigationFlowSample.Models
         public void AddPackage()
         {
             Packages.Add(new Package(true));
+        }
+
+        // 次の受注情報入力に移行するメソッド
+        public void MoveToNextOrder()
+        {
+            AddPackage();
+        }
+
+        // 受注情報を設定するメソッド
+        public void SetOrderInfo(string orderNo, int groupNo, string productName, int numOfProducts, List<SerialNo> serialNos)
+        {
+            if (Editing == null) AddPackage();
+
+            var package = Editing;
+            package.OrderNo = orderNo;
+            package.GroupNo = groupNo;
+            package.ProductName = productName;
+            package.NumOfProducts = numOfProducts;
+            package.AllSerialNos = serialNos;
         }
 
         public RegistData CreateSnapshot()

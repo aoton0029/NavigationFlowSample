@@ -31,7 +31,8 @@
             txtUserId = new TextBox();
             btnCancel = new Button();
             btnNext = new Button();
-            label1 = new Label();
+            lblUserName = new Label();
+            label2 = new Label();
             SuspendLayout();
             // 
             // txtUserId
@@ -66,21 +67,31 @@
             btnNext.UseVisualStyleBackColor = true;
             btnNext.Click += btnNext_Click;
             // 
-            // label1
+            // lblUserName
             // 
-            label1.BorderStyle = BorderStyle.FixedSingle;
-            label1.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            label1.Location = new Point(242, 225);
-            label1.Name = "label1";
-            label1.Size = new Size(273, 36);
-            label1.TabIndex = 6;
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            lblUserName.BorderStyle = BorderStyle.FixedSingle;
+            lblUserName.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            lblUserName.Location = new Point(242, 225);
+            lblUserName.Name = "lblUserName";
+            lblUserName.Size = new Size(273, 36);
+            lblUserName.TabIndex = 6;
+            lblUserName.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(191, 19);
+            label2.Name = "label2";
+            label2.Size = new Size(79, 15);
+            label2.TabIndex = 7;
+            label2.Text = "ユーザーログイン";
             // 
             // UcPageLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label1);
+            Controls.Add(label2);
+            Controls.Add(lblUserName);
             Controls.Add(btnNext);
             Controls.Add(btnCancel);
             Controls.Add(txtUserId);
@@ -95,6 +106,7 @@
         private TextBox txtUserId;
         private Button btnCancel;
         private Button btnNext;
-        private Label label1;
+        private Label lblUserName;
+        private Label label2;
     }
 }

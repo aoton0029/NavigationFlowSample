@@ -28,26 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnComplete = new Button();
+            btnRegist = new Button();
+            btnCancel = new Button();
             SuspendLayout();
             // 
-            // btnComplete
+            // btnRegist
             // 
-            btnComplete.Anchor = AnchorStyles.Bottom;
-            btnComplete.Font = new Font("メイリオ", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            btnComplete.Location = new Point(217, 490);
-            btnComplete.Name = "btnComplete";
-            btnComplete.Size = new Size(417, 64);
-            btnComplete.TabIndex = 5;
-            btnComplete.Text = "終了";
-            btnComplete.UseVisualStyleBackColor = true;
-            btnComplete.Click += btnComplete_Click;
+            btnRegist.Anchor = AnchorStyles.Bottom;
+            btnRegist.Font = new Font("メイリオ", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            btnRegist.Location = new Point(217, 490);
+            btnRegist.Name = "btnRegist";
+            btnRegist.Size = new Size(417, 64);
+            btnRegist.TabIndex = 5;
+            btnRegist.Text = "登録";
+            btnRegist.UseVisualStyleBackColor = true;
+            btnRegist.Click += btnComplete_Click;
+            // 
+            // btnCancel
+            // 
+            btnCancel.Font = new Font("メイリオ", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            btnCancel.Location = new Point(0, 0);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(127, 44);
+            btnCancel.TabIndex = 6;
+            btnCancel.Text = "キャンセル";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // UcPageRegist
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(btnComplete);
+            Controls.Add(btnCancel);
+            Controls.Add(btnRegist);
             Name = "UcPageRegist";
             Size = new Size(850, 569);
             ResumeLayout(false);
@@ -55,6 +68,7 @@
 
         #endregion
 
-        private Button btnComplete;
+        private Button btnRegist;
+        private Button btnCancel;
     }
 }

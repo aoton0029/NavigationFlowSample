@@ -15,6 +15,16 @@ namespace NavigationFlowSample.Models
 
         public List<SerialNo> SerialNos { get; set; }
 
+        public string DiaplaySerialNo
+        {
+            get
+            {
+                if (SerialNos == null || SerialNos.Count == 0)
+                    return string.Empty;
+                return string.Join(", ", SerialNos.Select(s => s.ToString()));
+            }
+        }
+
         public Box CreateSnapshot()
         {
             return new Box()

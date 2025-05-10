@@ -16,7 +16,7 @@ namespace NavigationFlowSample.Pages
     {
         private readonly RegistData _registData;
 
-        public UcPageRegist(RegistData registData)
+        public UcPageRegist(ServiceProvider provider, RegistData registData) : base(provider)
         {
             InitializeComponent();
             _registData = registData;
@@ -24,12 +24,12 @@ namespace NavigationFlowSample.Pages
 
         public override void OnPageShown(NavigationParameters parameter)
         {
-            base.OnPageShown(parameter);
+            
         }
 
         public override void OnPageLeave(NavigationParameters parameter)
         {
-            base.OnPageLeave(parameter);
+
         }
 
         public override Type DecideNavigation(NavigationContext context)
@@ -39,7 +39,26 @@ namespace NavigationFlowSample.Pages
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            _nav.Complete();
+            if (regist(out string errMsg))
+            {
+                _nav.Complete();
+            }
+            else
+            {
+                MessageBox.Show(errMsg);
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            _nav.Cancel();
+        }
+
+        private bool regist(out string errMsg)
+        {
+            errMsg = "";
+            //RegistDataの内容をデータベースに登録
+            return true;
         }
     }
 }

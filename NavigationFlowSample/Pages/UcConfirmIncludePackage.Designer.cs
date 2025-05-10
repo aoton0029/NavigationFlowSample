@@ -30,7 +30,7 @@
         {
             btnYes = new Button();
             btnNo = new Button();
-            button1 = new Button();
+            btnCancel = new Button();
             SuspendLayout();
             // 
             // btnYes
@@ -57,22 +57,22 @@
             btnNo.UseVisualStyleBackColor = true;
             btnNo.Click += btnNo_Click;
             // 
-            // button1
+            // btnCancel
             // 
-            button1.Font = new Font("メイリオ", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            button1.Location = new Point(0, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(127, 44);
-            button1.TabIndex = 1;
-            button1.Text = "キャンセル";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnCancel.Font = new Font("メイリオ", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            btnCancel.Location = new Point(0, 0);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(127, 44);
+            btnCancel.TabIndex = 1;
+            btnCancel.Text = "キャンセル";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // UcConfirmIncludePackage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button1);
+            Controls.Add(btnCancel);
             Controls.Add(btnNo);
             Controls.Add(btnYes);
             Name = "UcConfirmIncludePackage";
@@ -84,6 +84,6 @@
 
         private Button btnYes;
         private Button btnNo;
-        private Button button1;
+        private Button btnCancel;
     }
 }

@@ -1,9 +1,11 @@
-﻿using NavigationFlowSample.Core;
+﻿using Accessibility;
+using NavigationFlowSample.Core;
 using NavigationFlowSample.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,11 +14,11 @@ using System.Windows.Forms;
 
 namespace NavigationFlowSample.Pages
 {
-    public partial class UcPageAssignPackage : UcPageBase
+    public partial class UcPageNumOfProductsPerBox : UcPageBase
     {
         private readonly RegistData _registData;
 
-        public UcPageAssignPackage(RegistData registData)
+        public UcPageNumOfProductsPerBox(ServiceProvider provider, RegistData registData) : base(provider)
         {
             InitializeComponent();
             _registData = registData;
@@ -24,12 +26,12 @@ namespace NavigationFlowSample.Pages
 
         public override void OnPageShown(NavigationParameters parameter)
         {
-            base.OnPageShown(parameter);
+
         }
 
         public override void OnPageLeave(NavigationParameters parameter)
         {
-            base.OnPageLeave(parameter);
+
         }
 
         public override Type DecideNavigation(NavigationContext context)
@@ -39,7 +41,18 @@ namespace NavigationFlowSample.Pages
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            _nav.Cancel();
+        }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            _nav.GoBack();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            _registData.Editing.NumOfProductsPerBox = (int)nudNumOfProductsPerBox.Value;
+            _nav.GoNext<UcPageAssignBox>();
         }
     }
 }

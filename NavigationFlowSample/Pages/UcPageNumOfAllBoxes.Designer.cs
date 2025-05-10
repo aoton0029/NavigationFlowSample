@@ -1,6 +1,6 @@
 ﻿namespace NavigationFlowSample.Pages
 {
-    partial class UcPageAssignPackage
+    partial class UcPageNumOfAllBoxes
     {
         /// <summary> 
         /// 必要なデザイナー変数です。
@@ -31,6 +31,9 @@
             btnCancel = new Button();
             btnBack = new Button();
             btnNext = new Button();
+            label1 = new Label();
+            nudNumOfAllBoxes = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)nudNumOfAllBoxes).BeginInit();
             SuspendLayout();
             // 
             // btnCancel
@@ -48,34 +51,60 @@
             // 
             btnBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnBack.Font = new Font("メイリオ", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            btnBack.Location = new Point(0, 435);
+            btnBack.Location = new Point(0, 456);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(127, 44);
-            btnBack.TabIndex = 3;
+            btnBack.TabIndex = 4;
             btnBack.Text = "戻る";
             btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // btnNext
             // 
             btnNext.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnNext.Font = new Font("メイリオ", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            btnNext.Location = new Point(591, 435);
+            btnNext.Location = new Point(627, 456);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(127, 44);
-            btnNext.TabIndex = 4;
+            btnNext.TabIndex = 5;
             btnNext.Text = "次へ";
             btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click;
             // 
-            // UcPageAssignPackage
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("メイリオ", 18F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            label1.Location = new Point(474, 210);
+            label1.Name = "label1";
+            label1.Size = new Size(39, 36);
+            label1.TabIndex = 7;
+            label1.Text = "箱";
+            // 
+            // nudNumOfAllBoxes
+            // 
+            nudNumOfAllBoxes.Font = new Font("メイリオ", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            nudNumOfAllBoxes.Location = new Point(348, 196);
+            nudNumOfAllBoxes.Name = "nudNumOfAllBoxes";
+            nudNumOfAllBoxes.Size = new Size(120, 60);
+            nudNumOfAllBoxes.TabIndex = 8;
+            nudNumOfAllBoxes.TextAlign = HorizontalAlignment.Right;
+            nudNumOfAllBoxes.ValueChanged += nudNumOfAllBoxes_ValueChanged;
+            // 
+            // UcPageNumOfAllBoxes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(nudNumOfAllBoxes);
+            Controls.Add(label1);
             Controls.Add(btnNext);
             Controls.Add(btnBack);
             Controls.Add(btnCancel);
-            Name = "UcPageAssignPackage";
-            Size = new Size(718, 479);
+            Name = "UcPageNumOfAllBoxes";
+            Size = new Size(754, 500);
+            ((System.ComponentModel.ISupportInitialize)nudNumOfAllBoxes).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -83,5 +112,7 @@
         private Button btnCancel;
         private Button btnBack;
         private Button btnNext;
+        private Label label1;
+        private NumericUpDown nudNumOfAllBoxes;
     }
 }

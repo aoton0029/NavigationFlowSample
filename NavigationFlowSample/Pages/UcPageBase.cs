@@ -16,9 +16,10 @@ namespace NavigationFlowSample.Pages
         protected readonly ServiceProvider _provider;
         protected NavigationFlowService _nav => _provider.GetService<NavigationFlowService>();
 
-        public UcPageBase()
+        public UcPageBase(ServiceProvider provider)
         {
             InitializeComponent();
+            _provider = provider;
         }
 
         public virtual Type DecideNavigation(NavigationContext context)

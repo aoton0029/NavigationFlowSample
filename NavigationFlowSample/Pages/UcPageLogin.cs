@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,8 +16,9 @@ namespace NavigationFlowSample.Pages
     public partial class UcPageLogin : UcPageBase
     {
         private readonly RegistData _registData;
+        private ErrorProvider _errorProvider;
 
-        public UcPageLogin(RegistData registData)
+        public UcPageLogin(ServiceProvider provider, RegistData registData) : base(provider)
         {
             InitializeComponent();
             _registData = registData;
@@ -24,7 +26,8 @@ namespace NavigationFlowSample.Pages
 
         public override void OnPageShown(NavigationParameters parameter)
         {
-            base.OnPageShown(parameter);
+            // ユーザーIDに初期フォーカスを設定
+            txtUserId.Focus();
         }
 
         public override void OnPageLeave(NavigationParameters parameter)
@@ -44,7 +47,7 @@ namespace NavigationFlowSample.Pages
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            _nav.GoNext<UcPagePackageNum>();
+            _nav.GoNext<UcPageNumOfAllBoxes>();
         }
 
 
@@ -52,11 +55,22 @@ namespace NavigationFlowSample.Pages
         {
             if(e.KeyCode == Keys.Return)
             {
-                _registData.UserId = txtUserId.Text;
-                string name = "Sample Test";
-                _registData.UserName = name;
-                label1.Text = name;
+                e.Handled = true; // キー入力イベントを消費
+                e.SuppressKeyPress = true; // ビープ音を抑制
+
+                string name =  GetUserName(txtUserId.Text);
+                if (!string.IsNullOrEmpty(name))
+                {
+                    _registData.UserId = txtUserId.Text;
+                    _registData.UserName = name;
+                    lblUserName.Text = name;
+                }
             }
+        }
+
+        private string GetUserName(string userId)
+        {
+            return $"Sample {userId}";
         }
     }
 }

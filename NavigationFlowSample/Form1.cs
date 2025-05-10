@@ -20,13 +20,15 @@ namespace NavigationFlowSample
             _nav = new NavigationFlowService(_provider, this, null, OnComplete, OnCancel, OnTerminate);
             _nav.PreNavigatedEvent += PreNavigatedEvent;
             _nav.PostNavigatedEvent += PostNavigatedEvent;
-            _provider.RegisterSingleton<IServiceProvider>(_provider);
+            _provider.RegisterSingleton(_provider);
             _provider.RegisterSingleton(_nav);
-            _provider.RegisterSingleton(new UcPageAssignPackage(_registData));
-            _provider.RegisterSingleton(new UcPageLogin(_registData));
-            _provider.RegisterSingleton(new UcPageOrderInfo(_registData));
-            _provider.RegisterSingleton(new UcPagePackageNum(_registData));
-            _provider.RegisterSingleton(new UcPageRegist(_registData));
+            _provider.RegisterSingleton(new UcPageLogin(_provider, _registData));
+            _provider.RegisterSingleton(new UcPageNumOfAllBoxes(_provider, _registData));
+            _provider.RegisterSingleton(new UcPageOrderInfo(_provider, _registData));
+            _provider.RegisterSingleton(new UcPageNumOfProductsPerBox(_provider, _registData));
+            _provider.RegisterSingleton(new UcPageAssignBox(_provider, _registData));
+            _provider.RegisterSingleton(new UcConfirmIncludePackage(_provider, _registData));
+            _provider.RegisterSingleton(new UcPageRegist(_provider, _registData));
         }
 
         private void PreNavigatedEvent(object? sender, NavigationService.NavigationEventArgs e)

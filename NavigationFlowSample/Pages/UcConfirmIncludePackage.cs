@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NavigationFlowSample.Core;
+using NavigationFlowSample.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,26 +12,29 @@ using System.Windows.Forms;
 
 namespace NavigationFlowSample.Pages
 {
-    public partial class UcConfirmIncludePackage : UserControl
+    public partial class UcConfirmIncludePackage : UcPageBase
     {
-        public UcConfirmIncludePackage()
-        {
+        private readonly RegistData _registData;
+
+        public UcConfirmIncludePackage(ServiceProvider provider, RegistData registData) : base(provider) 
+        { 
             InitializeComponent();
+            _registData = registData;
         }
 
         private void btnNo_Click(object sender, EventArgs e)
         {
-
+            _nav.GoNext<UcPageRegist>();
         }
 
         private void btnYes_Click(object sender, EventArgs e)
         {
-
+            _nav.GoNext<UcPageOrderInfo>();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            _nav.Cancel();
         }
     }
 }
